@@ -23,7 +23,7 @@ void draw(){
   image(bg,0,0);
   
   fill(255,0,0);
-  text("Happy Hollidays", 100,550);
+  text("Happy Holidays", 100,550);
   for(Firework f : fireworks){
     if(f.isExplode() && !f.exploded){
       f.explode();
