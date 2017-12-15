@@ -1,8 +1,9 @@
 public class Firework{
   public PVector pos;
-  ArrayList<Particle> particles;
-  int numOfParticles = 1000;
+  public ArrayList<Particle> particles;
+  public int numOfParticles = 300;
   public boolean exploded = false;
+  public float rand = random(50,250);
   
   public Firework(float x, float y){
     pos = new PVector();
@@ -16,6 +17,10 @@ public class Firework{
     for(int i = 0; i < numOfParticles; i++){
       particles.add(new Particle(pos.x, pos.y));
     }
+  }
+  
+  public boolean isExplode(){
+    return (pos.y < rand);
   }
   
   public void show(){
@@ -32,7 +37,7 @@ public class Firework{
       fill(255,0,0);
       triangle(pos.x-2,pos.y,pos.x+12,pos.y,pos.x+5,pos.y-8);
       pos.x -= 0;
-      pos.y -= 10;
+      pos.y -= 7;
     }else{
       for(Particle p : particles){
         p.show();
